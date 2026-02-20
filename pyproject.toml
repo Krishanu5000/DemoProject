@@ -1,0 +1,52 @@
+#[tool.poetry]
+#name = "demoproject"
+#version = "0.1.0"
+#description = ""
+#authors = ["Krishanu Santra <krishanu.santra700@gmail.com>"]
+#readme = "README.md"
+#
+#[tool.poetry.dependencies]
+#python = "^3.10"
+#
+#
+#
+#[tool.black]
+#line-length = 120
+#
+#[tool.coverage.report]
+#exclude_lines = ["pragma: no cover", "Raise NotImplementedError", "if __Name__ == __main__", "pass"]
+#
+#[tool.poetry.group.dev.dependencies]
+#coverage = "*"
+#mock = "*"
+#numpy = "1.24.0"
+#pandas = "1.5.3"
+#pyspark-test = "0.2.0"
+#pytest = "*"
+#pytest-cov = "*"
+#setuptools = "*"
+#toml = "*"
+#twine = "*"
+#
+#
+#
+#[build-system]
+#requires = ["poetry-core"]
+#build-backend = "poetry.core.masonry.api"
+
+
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "demo-project"
+version = "0.1.0"
+description = "Demo Python project"
+authors = [
+    { name = "Krishanu" }
+]
+dependencies = [
+    "pyspark",
+    "pandas"
+]
