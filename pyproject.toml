@@ -50,3 +50,7 @@ dependencies = [
     "pyspark",
     "pandas"
 ]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]
