@@ -1,5 +1,4 @@
-import pytest
-from src.PEIworkshop_raw_data_load import RawExtractAndLoad  # Replace with actual module name
+from src.Practice.PEIworkshop_raw_data_load import RawExtractAndLoad  # Replace with actual module name
 
 
 def test_customer_file_read_schema(spark):
