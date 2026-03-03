@@ -59,6 +59,10 @@ def isValid(s):
 
     return len(stack) == 0
 
+
+
+
+
 print(isValid("()"))
 print(isValid("()[]{}"))
 print(isValid("(]"))
