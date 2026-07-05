@@ -1,4 +1,4 @@
-# from where jon group by having select union order by
+# from join where  group by having select union order by
 
 # A
 # id value
@@ -65,14 +65,70 @@ l = [10, 10 , 20 ,20 , 20 , 30 ,31, 40, 40, 40 ,40]
 #
 #  ate
 
-1. read data from s3 folder
-2. filter the data
-3. aggregare the dataclasses
-4. show result
+# 1. read data from s3 folder
+# 2. filter the data
+# 3. aggregare the dataclasses
+# 4. show result
+#
+# df =spark.read.format().load()  -- stg1
+# df = df.filter().groupbY().agg(max()).show() -- job1
+# stage1 stge2
 
-df =spark.read.format().load()  -- stg1
-df = df.filter().groupbY().agg(max()).show() -- job2
-stage1 stge2
+# O/P : [["eat", "ate", ""]]
 
-O/P : [["eat", "ate", ""]]
+def dacade_in_words(s, decimal_dict):
+    if len(s) == 2:
+        q = int(s)//10
+        r = int(s)%10
+        if decimal_dict[q] == 1:
+            return "Ten" + decimal_dict[r]
+        elif decimal_dict[q] == 2:
+            return "Twenty" + decimal_dict[r]
+        elif decimal_dict[q] == 3:
+            return "Thirty" + decimal_dict[r]
+        elif decimal_dict[q] == 4:
+            return "Fourty" + decimal_dict[r]
+        elif decimal_dict[q] == 5:
+            return "Fifty" + decimal_dict[r]
+        elif decimal_dict[q] == 6:
+            return "Sixty" + decimal_dict[r]
+        elif decimal_dict[q] == 7:
+            return "Seventy" + decimal_dict[r]
+        elif decimal_dict[q] == 8:
+            return "Eighty" + decimal_dict[r]
+        elif decimal_dict[q] == 9:
+            return "Ninety" + decimal_dict[r]
+
+# def number_to_words(n):
+#     decimal_dict= {1: "One", 2: "Two", 3: "Three", 4: "Four", 5: "Five", 6: "Six", 7: "Seven", 8: "Eight", 9: "Nine"}
+#     if len(str(n)) == 1:
+#         return decimal_dict[n]
+#     s = ""
+#     while len(str(n)) <= 3:
+#         if len(str(n)) == 3:
+#             multiple_of_hundred = decimal_dict
+#             n = n//10
+#             k = dacade_in_words(n , decimal_dict)
+#
+#             return
+
+
+
+def number_to_words(n):
+    ones = {1: "One", 2: "Two", 3: "Three", 4: "Four", 5: "Five", 6: "Six", 7: "Seven", 8: "Eight", 9: "Nine"}
+    teens = {11:"eleven", 12:"twelve", 13:"thirteen", 14:"fourteen", 15:"fifteen", 16:"sixteen", 17:"seventeen", 18:"eighteen", 19:"nineteen"}
+    tens = {1:"ten",2:"twenty", 3:"thirty", 4:"fourty", 5:"fifty", 6:"sixty", 7:"seventy", 8:"eighty", 9:"ninety"}
+
+    if n < 10:
+        return ones[n]
+    elif n<20:
+        return teens[n]
+    elif n<100:
+        return tens[n//10] + number_to_words(n%10)
+    elif n<1000:
+        return  ones[n//100] + " hundred " + number_to_words(n%100)
+
+
+
+print(number_to_words(121))
 

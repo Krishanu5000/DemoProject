@@ -52,6 +52,7 @@ def isValid(s):
     for ch in s:
         if ch in "([{":
             stack.append(ch)
+            print(stack)
         else:
             if not stack or stack[-1] != mapping[ch]:
                 return False
@@ -63,9 +64,9 @@ def isValid(s):
 
 
 
-print(isValid("()"))
-print(isValid("()[]{}"))
-print(isValid("(]"))
+# print(isValid("()"))
+# print(isValid("()[]{}"))
+# print(isValid("(]"))
 print(isValid("([])"))
 print(isValid("([)]"))
 print(isValid("(){}}{"))

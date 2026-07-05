@@ -138,3 +138,68 @@ for i in range(len(s)):
 print(s1[:-1])
 
 
+#find a missing number
+def findmissingnumber(l):
+    for i in range(1, len(l)):
+        if l[i] - l[i-1]>1:
+            print("***",i)
+            return l[i-1] + 1
+print("missing number")
+print(findmissingnumber([1,2,3,5,6]))
+
+
+##Remove Duplicates While Preserving Order
+
+def removeduplicate(l):
+    max_len = max(l)
+    l2 = [0] * max_len
+    for i in l:
+        l2[i-1] += 1
+    print(l2)
+    for i in range(len(l)-1,-1,-1):
+        #print(l[i] -1)
+        if l2[l[i] -1] > 1:
+            l2[l[i] -1]-=1
+            l.pop(i)
+    return l
+
+print(removeduplicate([2,4,2,1,5,4,6]))
+
+# Merge Two Sorted Lists
+def mergeList(l1, l2):
+    pass
+
+print(mergeList([1,3,5], [2,4,6]))
+
+
+# minimum unhappy person due to limited budget.
+
+
+def dirmovement(s):
+    s = re.sub(r"\./",'/',s)
+    print(s)
+    s = re.sub(r"/+",'/',s)
+    print(s)
+
+
+    l = s.split('/')
+
+    print(l)
+
+    stack = []
+    for i in l:
+        if i == '..':
+            stack.pop()
+        elif i!= '':
+            stack.append(i)
+
+    print(stack)
+
+    return '/'+ '/'.join(stack)
+
+print(dirmovement('/a/b////c//././..'))
+
+
+
+
+
